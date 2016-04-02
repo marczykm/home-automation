@@ -1,0 +1,9 @@
+.switch button.on {
+    background: #e6bd55 !important;
+    color: #000 !important;
+}
+
+.switch button.off {
+    background: #302218;
+    color: #e6bd55;
+}

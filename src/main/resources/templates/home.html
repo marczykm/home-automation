@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Home automation</title>
+
+    <!--bootstrap css-->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-alpha.2/dist/css/bootstrap.css}"/>
+    <!--bootstrap superhero theme-->
+    <link rel="stylesheet" th:href="@{/webjars/startbootstrap-sb-admin-2/1.0.2/css/bootstrap.css}"/>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<div class="container">
+    <h1>Urządzenia</h1>
+    <div class="row">
+        <div class="col-md-3" th:each="s : ${switches}">
+            <div class="panel panel-default device switch">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h3 th:text="${s.name}" class="device-name"></h3>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <button type="button" class="btn btn-default" th:attr="data-id=${s.id}" th:classappend="${s.value == 1}? on : off">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3" th:each="r : ${rgbleds}">
+            <div class="panel panel-default device rgb-led">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h3 th:text="${r.name}" class="device-name"></h3>
+                    </div>
+                </div>
+                <div class="panel-body" th:style="'background:rgb(' + ${r.red} + ',' + ${r.green} + ',' + ${r.blue} + ');'">
+                    <button type="button" class="btn btn-default" th:attr="data-id=${r.id}">Set color</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--bootstrap js-->
+<!--<script th:src="@{/webjars/jquery/3.0.0-beta1/dist/jquery.js}"></script>-->
+<script src="https://code.jquery.com/jquery-2.2.2.js" crossorigin="anonymous"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-alpha.2/dist/js/bootstrap.js}"></script>
+<script th:src="@{/webjars/startbootstrap-sb-admin-2/1.0.2/js/bootstrap.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
