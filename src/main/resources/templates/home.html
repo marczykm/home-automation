@@ -41,10 +41,12 @@
                     </div>
                 </div>
                 <div class="panel-body" th:style="'background:rgb(' + ${r.red} + ',' + ${r.green} + ',' + ${r.blue} + ');'">
-                    <button type="button" class="btn btn-default" th:attr="data-id=${r.id}">Set color</button>
+                    <input class="btn btn-default jscolor" onchange="update(this.jscolor)" value="cc66ff" th:attr="data-id=${r.id}"/>
                 </div>
             </div>
         </div>
+
+        <input type="text" id="currently_clicked" style="display:none"/>
 
     </div>
 </div>
@@ -54,6 +56,7 @@
 <script src="https://code.jquery.com/jquery-2.2.2.js" crossorigin="anonymous"></script>
 <script th:src="@{/webjars/bootstrap/4.0.0-alpha.2/dist/js/bootstrap.js}"></script>
 <script th:src="@{/webjars/startbootstrap-sb-admin-2/1.0.2/js/bootstrap.js}"></script>
+<script th:src="@{/js/jscolor.min.js}"></script>
 <script th:src="@{/js/script.js}"></script>
 </body>
 </html>

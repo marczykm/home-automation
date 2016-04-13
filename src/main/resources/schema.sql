@@ -11,5 +11,6 @@ create table rgb_led_strip (
   name varchar(255) not null,
   red int,
   green int,
-  blue int
+  blue int,
+  script varchar(255)
 );

@@ -3,7 +3,9 @@ package pl.marczyk.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.marczyk.model.RgbLedStrip;
+import pl.marczyk.model.Switch;
 import pl.marczyk.repository.RgbLedStripRepository;
+import pl.marczyk.utils.ScriptRunner;
 
 import java.util.List;
 
@@ -28,4 +30,8 @@ public class RgbLedStripService {
 		return rgbLedStripRepository.findOne(id);
 	}
 
+	public void runScript(RgbLedStrip aSwitch) {
+		String script = aSwitch.getScript() + "/?pin="+aSwitch.getRed()+"x"+aSwitch.getGreen()+"x"+aSwitch.getBlue();
+		ScriptRunner.run(script);
+	}
 }

@@ -23,6 +23,8 @@ public class RgbLedStrip {
 	private int green;
 	private int blue;
 
+	private String script;
+
 	public RgbLedStrip() {
 	}
 
@@ -58,6 +60,10 @@ public class RgbLedStrip {
 
 	public int getBlue() {
 		return blue;
+	}
+
+	public String getScript() {
+		return script;
 	}
 
 	@Override public String toString() {

@@ -34,4 +34,10 @@ public class RgbLedStripRestController {
 		return switchService.findOneById(id);
 	}
 
+	@RequestMapping(value = "/{id}/{red}/{green}/{blue}", method = RequestMethod.GET)
+	public void setValue(@PathVariable Long id, @PathVariable(value = "red") int red, @PathVariable(value = "green") int green, @PathVariable(value = "blue") int blue){
+		RgbLedStrip aSwitch = switchService.findOneById(id);
+		aSwitch.setValue(red, green, blue);
+		switchService.runScript(aSwitch);
+	}
 }
