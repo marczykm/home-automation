@@ -5,4 +5,4 @@ insert into switch
 
 insert into rgb_led_strip
 (id,   name, red, green, blue, script) values
-( 1, 'esp8266rgb',   0,     0,    0, 'http://192.168.0.108');
+( 1, 'esp8266rgb',   0,     0,    0, 'http://192.168.0.200');

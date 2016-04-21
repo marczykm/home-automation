@@ -1,0 +1,1 @@
+java -jar target/home-automation-0.0.1-SNAPSHOT.jar
